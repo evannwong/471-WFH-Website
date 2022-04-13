@@ -39,14 +39,16 @@ if ($stmt = $con->prepare('SELECT id, fldPassword FROM tbl_login WHERE fldUserna
 			$_SESSION['name'] = $_POST['txtName'];
 			$_SESSION['id'] = $id;
 			//echo 'Welcome ' . $_SESSION['name'] . '!';
+			$_SESSION['status'] = 'Password Incorrect';
 			header('Location: userdash.php');
 		} else {
 			// Incorrect password
-			echo 'Incorrect password!';
+			$_SESSION['status'] = 'Username Incorrect';
+			header('Location: cpscproj.html');
 		}
 	} else {
 		// Incorrect username
-		echo 'Incorrect username!';
+		header('Location: cpscproj.html');
 	}
 
 	$stmt->close();
