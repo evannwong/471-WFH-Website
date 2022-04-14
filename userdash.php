@@ -128,11 +128,11 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                             <p class="card-title">Detailed Reports</p>
 							<?php
 								$id=$_SESSION['id'];
-								$query = "SELECT MAX(TotalEarned) AS max FROM `user`WHERE userid='$id'";
+								$query = "SELECT * FROM `user` WHERE userid='$id' ORDER BY id DESC LIMIT 1";
 								$result = $connect->query($query);
 								$row = $result->fetch_assoc();
 							?>
-                              <h1 class="text-primary">$<?php echo $row['max']?></h1>
+                              <h1 class="text-primary">$<?php echo $row['TotalEarned']?></h1>
                               <h3 class="font-weight-500 mb-xl-4 text-primary">Total money earned</h3>
                               <p class="mb-2 mb-xl-0">NUMBER OF WORKING SHIFTS = ? FROM ? TO ?</p>
                             </div>  

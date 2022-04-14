@@ -32,10 +32,10 @@ $hours=$difference->h;
 $earned=$hours * $pay;
 
 $userid=$_SESSION['id'];
-$query = "SELECT MAX(TotalEarned) AS max FROM `user` WHERE userid='$userid'";
+$query = "SELECT * FROM `user` WHERE userid='$userid' ORDER BY id DESC LIMIT 1";
 $result = $con->query($query);
 $row = $result->fetch_assoc();
-$earnings = $row['max'];
+$earnings = $row['TotalEarned'];
 $totalEarned=$earnings + $earned;
 
 mysqli_query($con,"insert into `user` (Date, Start, End, id, userid, Job, Company, Pay_rate, Hours_worked, Amount_earned, TotalEarned) values ('$date','$start','$end', '', '$userid', '$job','$company','$pay','$hours', '$earned', '$totalEarned')");
