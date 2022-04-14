@@ -134,7 +134,12 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
 							?>
                               <h1 class="text-primary">$<?php echo $row['TotalEarned']?></h1>
                               <h3 class="font-weight-500 mb-xl-4 text-primary">Total money earned</h3>
-                              <p class="mb-2 mb-xl-0">NUMBER OF WORKING SHIFTS = ? FROM ? TO ?</p>
+							<?php
+								$query = "SELECT * FROM `user` WHERE userid='$id'";
+								$result = $connect->query($query);
+								$numOfShifts = mysqli_num_rows($result);
+							?>
+                              <p class="mb-2 mb-xl-0">NUMBER OF SHIFTS: <?php echo $numOfShifts ?></p>
                             </div>  
                             </div>
                           <div class="col-md-12 col-xl-9">
