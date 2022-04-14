@@ -11,17 +11,18 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
 <!-- <template used from -->
     <!-- https://github.com/BootstrapDash/skydash-free-bootstrap-admin-template/tree/main/template -->
   
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Required meta tags -->
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>User dashboard</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="css/style.css">
+<html lang="en">
+	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	  <!-- Required meta tags -->
+	  
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  <title>User dashboard</title>
+	  <!-- plugins:css -->
+	  <link rel="stylesheet" href="css/style.css">
 
-  <!-- endinject -->
-  <link rel="shortcut icon" href="file:///F:/patrick/dbproj/images/favicon.png">
-</head>
+	  <!-- endinject -->
+	  <link rel="shortcut icon" href="file:///F:/patrick/dbproj/images/favicon.png">
+	</head>
 <body>
   <div class="container-scroller">
     <!-- partial -->
@@ -106,10 +107,10 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
 						</div>
 					</a>
 				  </div>
-				</div>
+				</div> 
 				<div class="col-md-6 stretch-card transparent">
 				  <div class="card card-light-danger">
-          <a href="https://shardarquraishi.com/dbproj/retrieve.html">
+          <a href="https://shardarquraishi.com/dbproj/retrieve.php">
 					<div class="card-body">
 					  
 					  <p class="fs-30 mb-2">Custom retrieve</p>
@@ -244,9 +245,5 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-
-
-
-
-
-</body></html>
+</body>
+</html>
