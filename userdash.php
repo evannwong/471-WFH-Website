@@ -43,7 +43,7 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                  <div class="justify-content-end d-flex">
                   <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
                     <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                     <i class="mdi mdi-calendar"></i> Today (31 March 2022)
+                     <i class="mdi mdi-calendar"></i> Today (15 March 2022)
                     </button>
                   </div>
                  </div>
@@ -109,11 +109,13 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
 				</div>
 				<div class="col-md-6 stretch-card transparent">
 				  <div class="card card-light-danger">
+          <a href="https://shardarquraishi.com/dbproj/retrieve.html">
 					<div class="card-body">
 					  
 					  <p class="fs-30 mb-2">Custom retrieve</p>
 					  
 					</div>
+          </a>
 				  </div>
 				</div>
 			  </div>
@@ -200,8 +202,8 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                               <th>Job</th>
                               <th>Company</th>
                               <th>Pay rate</th>
-							  <th>Hours worked</th>
-							  <th>Amount earned</th>	
+							                <th>Hours worked</th>
+							                <th>Amount earned</th>	
                               <th></th>
                             </tr>
 							<?php while($row = $result->fetch_assoc()):?>
