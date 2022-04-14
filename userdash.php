@@ -85,22 +85,26 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
 				</div>
 				<div class="col-md-6 mb-4 stretch-card transparent">
 				  <div class="card card-dark-blue">
-					<div class="card-body">
-					  
-					  <p class="fs-30 mb-2">Edit info</p>
-					  
-					</div>
+					<a href="https://shardarquraishi.com/dbproj/editForm.html">
+						<div class="card-body">
+						  
+						  <p class="fs-30 mb-2">Edit info</p>
+						  
+						</div>
+					</a>
 				  </div>
 				</div>
 			  </div>
 			  <div class="row">
 				<div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
 				  <div class="card card-light-blue">
-					<div class="card-body">
-						  
-					  <p class="fs-30 mb-2">Delete info</p>
-						  
-					</div>
+				    <a href="https://shardarquraishi.com/dbproj/delForm.html">
+						<div class="card-body">
+							  
+						  <p class="fs-30 mb-2">Delete info</p>
+							  
+						</div>
+					</a>
 				  </div>
 				</div>
 				<div class="col-md-6 stretch-card transparent">
@@ -128,11 +132,11 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                             <p class="card-title">Detailed Reports</p>
 							<?php
 								$id=$_SESSION['id'];
-								$query = "SELECT * FROM `user` WHERE userid='$id' ORDER BY id DESC LIMIT 1";
-								$result = $connect->query($query);
-								$row = $result->fetch_assoc();
+								$query = "SELECT SUM(Amount_earned) FROM `user` WHERE userid='$id'";
+								$result = mysqli_query($connect, $query);
+								$row = mysqli_fetch_row($result);
 							?>
-                              <h1 class="text-primary">$<?php echo $row['TotalEarned']?></h1>
+                              <h1 class="text-primary">$<?php echo $row[0] ?></h1>
                               <h3 class="font-weight-500 mb-xl-4 text-primary">Total money earned</h3>
 							<?php
 								$query = "SELECT * FROM `user` WHERE userid='$id'";
