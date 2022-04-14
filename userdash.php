@@ -105,11 +105,13 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
 				</div>
 				<div class="col-md-6 stretch-card transparent">
 				  <div class="card card-light-danger">
+          <a href="https://shardarquraishi.com/dbproj/retrieve.html">
 					<div class="card-body">
 					  
 					  <p class="fs-30 mb-2">Custom retrieve</p>
 					  
 					</div>
+          </a>
 				  </div>
 				</div>
 			  </div>
@@ -196,8 +198,8 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                               <th>Job</th>
                               <th>Company</th>
                               <th>Pay rate</th>
-							  <th>Hours worked</th>
-							  <th>Amount earned</th>	
+							                <th>Hours worked</th>
+							                <th>Amount earned</th>	
                               <th></th>
                             </tr>
 							<?php while($row = $result->fetch_assoc()):?>
