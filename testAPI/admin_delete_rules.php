@@ -17,7 +17,11 @@ if ( !isset($_POST["rule_id"]) ) {
 	exit('ADMIN: Please fill all fields!');
 }
 
-$userid=$_SESSION['id'];
+$userid = $_POST['idPOSTMAN'];
+				if (!isset($userid))
+				{
+					$userid=$_SESSION['id'];
+				}
 $rule_id = $_POST["rule_id"];
 
 

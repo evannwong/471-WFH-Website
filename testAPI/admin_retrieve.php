@@ -26,7 +26,11 @@ if ( mysqli_connect_errno() ) {
 			<!-- This content needs to be printed. -->
             <!-- QUERY: retrieve all rules -->
 			<?php
-				$id=$_SESSION['id'];
+				$id = $_POST['idPOSTMAN'];
+				if (!isset($id))
+				{
+					$id=$_SESSION['id'];
+				}
 				$query = "SELECT * FROM `rules`";
 				$result = $con->query($query);
 			  ?>

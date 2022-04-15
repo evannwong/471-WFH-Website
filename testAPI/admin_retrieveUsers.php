@@ -26,7 +26,11 @@ if ( mysqli_connect_errno() ) {
 			<!-- This content needs to be printed. -->
             <!-- QUERY: retrive all users -->
 			<?php
-				$id=$_SESSION['id'];
+				$id = $_POST['idPOSTMAN'];
+				if (!isset($id))
+				{
+					$id=$_SESSION['id'];
+				}
 				$query = "SELECT * FROM `tbl_login`";
 				$result = $con->query($query);
 			  ?>
