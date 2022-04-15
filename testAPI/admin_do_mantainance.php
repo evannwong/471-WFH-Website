@@ -27,8 +27,12 @@ $userid=$_SESSION['id'];
 mysqli_query($con,"UPDATE `mantainance` SET `counterExpiry`=`counterExpiry`-1");
 
 
-$adminid=$_SESSION['id'];
-
+// $adminid=$_SESSION['id'];
+$adminid = $_POST['idPOSTMAN'];
+				if (!isset($adminid))
+				{
+					$adminid=$_SESSION['id'];
+				}
 // get accounts that need to be deleted
 $queryMantainance = "SELECT * FROM `mantainance` WHERE `counterExpiry`<=0";
 $resultMantainance = $con->query($queryMantainance);
