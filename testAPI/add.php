@@ -16,8 +16,12 @@ if ( !isset($_POST['date'],$_POST['s_time'], $_POST['e_time'], $_POST['job_name'
 	// Could not get the data that should have been sent.
 	exit('Please fill all fields!');
 }
-
-$userid=$_SESSION['id'];
+$userid = $_POST['idPOSTMAN'];
+				if (!isset($userid))
+				{
+					$userid=$_SESSION['id'];
+				}
+// $userid=$_SESSION['id'];
 $date=$_POST['date'];
 $start=$_POST['s_time'];
 $end=$_POST['e_time'];

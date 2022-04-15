@@ -16,8 +16,11 @@ if ( !isset($_POST['shift_id'],$_POST['date'],$_POST['s_time'], $_POST['e_time']
 	// Could not get the data that should have been sent.
 	exit('Please fill all fields!');
 }
-
-$userid=$_SESSION['id'];
+$userid = $_POST['idPOSTMAN'];
+				if (!isset($userid))
+				{
+					$userid=$_SESSION['id'];
+				}
 $shiftid=$_POST['shift_id'];
 $date=$_POST['date'];
 $start=$_POST['s_time'];
