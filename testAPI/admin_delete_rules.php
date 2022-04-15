@@ -12,7 +12,7 @@ if ( mysqli_connect_errno() ) {
 	exit('ADMIN: Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-if ( !isset($_POST["rule_id"]) ) {
+if ( !isset($_POST['rule_id']) ) {
 	// Could not get the data that should have been sent.
 	exit('ADMIN: Please fill all fields!');
 }
@@ -22,7 +22,7 @@ $userid = $_POST['idPOSTMAN'];
 				{
 					$userid=$_SESSION['id'];
 				}
-$rule_id = $_POST["rule_id"];
+$rule_id = $_POST['rule_id'];
 
 
 mysqli_query($con,"DELETE FROM `rules` WHERE `id`='$rule_id'");
