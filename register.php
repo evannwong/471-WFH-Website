@@ -22,6 +22,10 @@ $lname=$_POST['l_name'];
 $email=$_POST['email'];
 $address=$_POST['address'];
 
+
+// TODO: if e-mail already exists in mantainance then do it here
 mysqli_query($con,"insert into `tbl_login` (id,fldUsername,fldPassword, fldFirstName, fldLastName, fldEmail, fldAddress) values ('','$username','$password','$fname','$lname','$email','$address')");
+
+
 header('Location: cpscproj.html');
 ?>

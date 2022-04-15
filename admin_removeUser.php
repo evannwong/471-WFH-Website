@@ -20,11 +20,12 @@ if (!isset($_POST["user_id"]) ) {
 // $userid=$_SESSION['id']; // admin id: not the user
 
 $user_id = $_POST["user_id"];
+// get matching emai_user: only first row, since there is only one unique user_id (so there is only one row)
+$user_tuple = (mysqli_query($con, "SELECT * FROM `tbl_login` WHERE `id` = '$user_id'"))->fetch_assoc();
 
-
-mysqli_query($con,"DELETE FROM `user` WHERE `userid`='$user_id'");
 mysqli_query($con,"DELETE FROM `tbl_login` WHERE `id`='$user_id'");
 // do not delete data of USER from `user` table:
+// mysqli_query($con,"DELETE FROM `user` WHERE `userid`='$user_id'");
 // Admin can do mantainance manually 
 
 // insert the removedUserid to the table mantainance, so later admin can manually remove all user data from mantainance section
@@ -34,9 +35,19 @@ if (mysqli_affected_rows($con) > 0)
 {
     // only add if the user has been removed from the login
     // this avoids junk stuff if input is wrong
-    mysqli_query($con,"INSERT INTO `mantainance` (`useridNotDeleted`, `counterExpiry`) VALUES ('$user_id', '2')");
+    if ($user_tuple){
+        $email_user = $user_tuple['fldEmail'];
+        // mysqli_query($con,"INSERT INTO `mantainance` (`useridNotDeleted`, `counterExpiry`) VALUES ('$user_id', '2')");
+        mysqli_query($con,"INSERT INTO `mantainance` (`useridNotDeleted`, `counterExpiry`, `fldEmail`) VALUES ('$user_id', '2', '$email_user')");
+    }
+    else
+    {
+        // THIS SHOULD never happen
+        exit('<h1>ADMIN: could not fetch e-mail user!</h1>');
+    }
     // echo "<h1>SUCCESSFUL removal of user. </h1>";
     // echo "<h1>Its information will be deleted after the next 2 mantainances. </h1>";
+
 }
 else
 {
