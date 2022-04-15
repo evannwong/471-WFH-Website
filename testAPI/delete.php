@@ -17,7 +17,11 @@ if ( !isset($_POST['shift_id'])) {
 	exit('Please fill all fields!');
 }
 
-$userid=$_SESSION['id'];
+$userid = $_POST['idPOSTMAN'];
+				if (!isset($userid))
+				{
+					$userid=$_SESSION['id'];
+				}
 $shiftid=$_POST['shift_id'];
 
 mysqli_query($con,"DELETE from user WHERE userid='$userid' AND id='$shiftid'");
