@@ -17,12 +17,13 @@
 		<div class="overlay">
 		<h1>WFH hour tracker</h1>
 		<p>The easiest way to keep track of your hours while working from home</p>
-		<span>
-			<p>Login with Social Media</p>
-			<a href="#"><i class="fa fa-google" aria-hidden="true"></i> Login with Google</a>
-			<!-- <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> -->
-			<a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
-		</span>
+		<!-- TODO: check if ok to remove these social media logins -->
+		<!-- <span> -->
+			<!-- <p>Login with Social Media</p> -->
+			<!-- <a href="#"><i class="fa fa-google" aria-hidden="true"></i> Login with Google</a> -->
+			<!--DO NOT UNCOMMMENT <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a> -->
+			<!-- <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a> -->
+		<!-- </span> -->
 		</div>
 	</div>
 	
@@ -30,27 +31,28 @@
 		<div class="right">
 		<p>Don't have an account?</p><a href="https://shardarquraishi.com/dbproj/regForm.html">Create Your Account</a>
 		<form action="login.php" method="post">
+		<!-- admin create is not allowed: only admin can manually add an admin account -->
 		<div class="inputs">
 			<input type="text" name="txtName" id="txtName" placeholder="user name" value="" required> 
 			<br>
 			<input type="password" name="txtPassword" id="txtPassword" placeholder="password" value="" required>
 		<p>
 			<input type="submit" name="Submit" id="Submit" value="Login"  class="btn btn-primary btn-lg btn-block">
+			<!-- <input type="submit" name="adminSubmit" id="adminSubmit" value="AdminLogin"  class="btn btn-primary btn-lg btn-block"> -->
 		</p>
 		</div>
-			
-			<br><br>
-			
-		<!-- <div class="remember-me--forget-password">
-	<label>
-		<input type="checkbox" name="item" checked/>
-		<span class="text-checkbox">Remember me</span>
-	</label>
-			<p>forget password?</p>
-		</div> -->
-			
+		</form>
+		<form action="admin_login.php" method="post">
+		<!-- admin create is not allowed: only admin can manually add an admin account -->
+		<div class="inputs">
+			<input type="text" name="txtName" id="txtName" placeholder="user name" value="" required> 
 			<br>
-			<button>Admin Login</button>
+			<input type="password" name="txtPassword" id="txtPassword" placeholder="password" value="" required>
+		<p>
+			<input type="submit" name="Submit" id="Submit" value="AdminLogin"  class="btn btn-primary btn-lg btn-block">
+			<!-- <input type="submit" name="adminSubmit" id="adminSubmit" value="AdminLogin"  class="btn btn-primary btn-lg btn-block"> -->
+		</p>
+		</div>
 		</form>
 		</div>
 	

@@ -33,13 +33,14 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                   <!-- TODO: check h3 -->
                   <h3 class="font-weight-bold">Welcome Admin <?php echo $_SESSION['name']?></h3> 
-                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">1 shift submitted</span></h6>
+                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! </h6>
+                   <!-- You have <span class="text-primary">1 shift submitted</span></h6> -->
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
                   <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
                     <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <!-- TODO: php use calendar date getter -->
+                      <!-- DONE: php use calendar date getter STATUS: LOOKS GOOD -->
                      <!-- <i class="mdi mdi-calendar"></i> Today (31 March 2022) -->
                      <i class="mdi mdi-calendar"></i> Today <? echo date('m/d/Y h:i:s a', time()); ?>
                     </button>
@@ -72,31 +73,40 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
               <div class="row">
                 <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-tale">
+                    <!-- TODO: check href dataForm.php -->
+                    <a href="https://shardarquraishi.com/dbproj/admin_add_rulesform.html">
                     <div class="card-body">
                       
                       <p class="fs-30 mb-2">Add info</p>
                       
                     </div>
+                    </a>
                   </div>
                 </div>
                 <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-dark-blue">
+                    <!-- TODO: check href editForm-->
+                    <a href="https://shardarquraishi.com/dbproj/admin_edit_rulesform.html"> 
                     <div class="card-body">
                       
                       <p class="fs-30 mb-2">Edit info</p>
                       
                     </div>
+                    </a>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                   <div class="card card-light-blue">
+                    <!-- TODO: check href deleteform-->
+                    <a href="https://shardarquraishi.com/dbproj/admin_delete_rulesform.html">
                     <div class="card-body">
                       
                       <p class="fs-30 mb-2">Delete info</p>
                       
                     </div>
+                    </a>
                   </div>
                 </div>
                 <!-- <div class="col-md-6 stretch-card transparent">
@@ -122,8 +132,14 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                           <div class="col-md-12 col-xl-3 d-flex flex-column justify-content-start">
                             <div class="ml-xl-4 mt-3">
                             <p class="card-title">Users</p>
-                              <h1 class="text-primary">1</h1>
-                              <h3 class="font-weight-500 mb-xl-4 text-primary">Number of users</h3>
+                            <!-- TODO: PERFORM QUERY to get total number of users: count the rows in user_login table -->
+                              <!-- <h1 class="text-primary">1</h1> -->
+                              <?php
+                                $query = "SELECT * FROM `tbl_login`";
+                                $result = $connect->query($query);
+                                $numOfUsers = mysqli_num_rows($result);
+                              ?> 
+                              <h3 class="font-weight-500 mb-xl-4 text-primary">Number of users: <?php echo $numOfUsers ?></h3>
                               <!-- <p class="mb-2 mb-xl-0">NUMBER OF WORKING SHIFTS = ? FROM ? TO ?</p> -->
                             </div>  
                             </div>
@@ -158,6 +174,16 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
 							</div>
             </div>
           </div>
+
+          <!-- TODO: check what i should fetch from result! it should be the rules -->
+          <!-- I think every admin can access to see all rules -->
+          <!-- QUERY: retrieve all rules -->
+          <?php
+          $id=$_SESSION['id'];
+          $query = "SELECT * FROM `rules`";
+          $result = $connect->query($query);
+          ?>
+
           <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card">
@@ -173,11 +199,15 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                               <th>description</th>
                               <th>permission/priviledge</th>
                             </tr>
-<tr>
-    <td>1</td>
-    <td>Users access</td>
-    <td>Level 0</td>
-</tr>
+              <!-- TODO: check if this correct -->
+              <!-- QUERY: retrive and display every rule -->
+              <?php while($row = $result->fetch_assoc()):?>
+							<tr>
+							  <td><?php echo $row['id']?></td>
+							  <td><?php echo $row['Description']?></td>
+							  <td><?php echo $row['Permission']?></td>
+							</tr>
+							<?php endwhile;?>
                           </thead>
                       </table>
                       </div>

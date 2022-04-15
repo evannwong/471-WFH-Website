@@ -38,13 +38,14 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                   <h3 class="font-weight-bold">Welcome <?php echo $_SESSION['name']?></h3>
-                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">1 shift submitted</span></h6>
+                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! </h6>
+                   <!-- You have <span class="text-primary">1 shift submitted</span></h6> -->
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
                   <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
                     <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      <!-- TODO: php use calendar date getter -->
+                      <!-- DONE: php use calendar date getter: STATUS: LOOKS GOOD -->
                      <!-- <i class="mdi mdi-calendar"></i> Today (15 March 2022) -->
                      <i class="mdi mdi-calendar"></i> Today <? echo date('m/d/Y h:i:s a', time()); ?>
                     </button>
@@ -135,6 +136,7 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                           <div class="col-md-12 col-xl-3 d-flex flex-column justify-content-start">
                             <div class="ml-xl-4 mt-3">
                             <p class="card-title">Detailed Reports</p>
+              <!-- QUERY: retrieve total amount earned for current userz -->
 							<?php
 								$id=$_SESSION['id'];
 								$query = "SELECT SUM(Amount_earned) FROM `user` WHERE userid='$id'";
