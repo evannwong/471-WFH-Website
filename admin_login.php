@@ -40,7 +40,6 @@ if ($stmt = $con->prepare('SELECT id, fldPassword FROM admin_login WHERE fldUser
 			$_SESSION['id'] = $id;
 			//echo 'Welcome ' . $_SESSION['name'] . '!';
 			$_SESSION['status'] = 'Password Incorrect';
-			// TODO: check if proper header
 			header('Location: admindash.php');
 		} else {
 			// Incorrect password
