@@ -31,7 +31,7 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <!-- TODO: check h3 -->
+                  <!-- check h3 -->
                   <h3 class="font-weight-bold">Welcome Admin <?php echo $_SESSION['name']?></h3> 
                   <h6 class="font-weight-normal mb-0">All systems are running smoothly! </h6>
                    <!-- You have <span class="text-primary">1 shift submitted</span></h6> -->
@@ -73,11 +73,11 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
               <div class="row">
                 <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-tale">
-                    <!-- TODO: check href dataForm.php -->
+                    <!-- check href dataForm.php -->
                     <a href="https://shardarquraishi.com/dbproj/admin_add_rulesform.html">
                     <div class="card-body">
                       
-                      <p class="fs-30 mb-2">Add info</p>
+                      <p class="fs-30 mb-2">Add rule</p>
                       
                     </div>
                     </a>
@@ -85,11 +85,11 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                 </div>
                 <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-dark-blue">
-                    <!-- TODO: check href editForm-->
+                    <!-- check href editForm-->
                     <a href="https://shardarquraishi.com/dbproj/admin_edit_rulesform.html"> 
                     <div class="card-body">
                       
-                      <p class="fs-30 mb-2">Edit info</p>
+                      <p class="fs-30 mb-2">Edit rule</p>
                       
                     </div>
                     </a>
@@ -99,26 +99,65 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
               <div class="row">
                 <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                   <div class="card card-light-blue">
-                    <!-- TODO: check href deleteform-->
+                    <!-- check href deleteform-->
                     <a href="https://shardarquraishi.com/dbproj/admin_delete_rulesform.html">
                     <div class="card-body">
                       
-                      <p class="fs-30 mb-2">Delete info</p>
+                      <p class="fs-30 mb-2">Delete rule</p>
                       
                     </div>
                     </a>
                   </div>
                 </div>
-                <!-- <div class="col-md-6 stretch-card transparent">
+                <div class="col-md-6 stretch-card transparent">
                   <div class="card card-light-danger">
+                    <a href="https://shardarquraishi.com/dbproj/admin_retrieve.php">
+                      <div class="card-body">
+                        
+                        <p class="fs-30 mb-2">Rules retrieve</p>
+                        
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class = "row">
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                  <div class="card card-dark-blue">
+                    <!-- check href editForm-->
+                    <a href="https://shardarquraishi.com/dbproj/admin_removeUserForm.html"> 
                     <div class="card-body">
                       
-                      <p class="fs-30 mb-2">Custom retrieve</p>
+                      <p class="fs-30 mb-2">Remove user</p>
                       
                     </div>
+                    </a>
                   </div>
-                </div> -->
+                </div>
+
+
+                <div class="col-md-6 stretch-card transparent">
+                  <div class="card card-light-danger">
+                    <a href="https://shardarquraishi.com/dbproj/admin_retrieveUsers.php">
+                      <div class="card-body">
+                        
+                        <p class="fs-30 mb-2">Users retrieve</p>
+                        
+                      </div>
+                    </a>
+                  </div>
+                </div>
               </div>
+
+
             </div>
           </div>
         <div class="row">
@@ -132,7 +171,7 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                           <div class="col-md-12 col-xl-3 d-flex flex-column justify-content-start">
                             <div class="ml-xl-4 mt-3">
                             <p class="card-title">Users</p>
-                            <!-- TODO: PERFORM QUERY to get total number of users: count the rows in user_login table -->
+                            <!-- PERFORM QUERY to get total number of users: count the rows in user_login table -->
                               <!-- <h1 class="text-primary">1</h1> -->
                               <?php
                                 $query = "SELECT * FROM `tbl_login`";
@@ -175,7 +214,7 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
             </div>
           </div>
 
-          <!-- TODO: check what i should fetch from result! it should be the rules -->
+          <!-- check what i should fetch from result! it should be the rules -->
           <!-- I think every admin can access to see all rules -->
           <!-- QUERY: retrieve all rules -->
           <?php
@@ -199,7 +238,7 @@ $connect = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATAB
                               <th>description</th>
                               <th>permission/priviledge</th>
                             </tr>
-              <!-- TODO: check if this correct -->
+              <!-- check if this correct -->
               <!-- QUERY: retrive and display every rule -->
               <?php while($row = $result->fetch_assoc()):?>
 							<tr>
